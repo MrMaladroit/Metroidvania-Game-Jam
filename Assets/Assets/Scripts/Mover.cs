@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private float m_moveSpeed;
+    private Rigidbody2D m_rigidbody;
+
+    private void Awake()
     {
-        
+        m_rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Move(Vector2 movementVector)
     {
-        
+        movementVector.x = transform.position.x * m_moveSpeed * Time.deltaTime;
+        movementVector.y = transform.position.y * m_moveSpeed * Time.deltaTime;
+        m_rigidbody.MovePosition(movementVector);
     }
 }
