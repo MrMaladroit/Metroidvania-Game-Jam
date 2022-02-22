@@ -6,6 +6,7 @@ public class Mover : MonoBehaviour
 {
     [SerializeField]
     private float m_moveSpeed;
+
     private Rigidbody2D m_rigidbody;
 
     private void Awake()
