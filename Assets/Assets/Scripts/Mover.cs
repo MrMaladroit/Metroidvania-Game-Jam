@@ -15,7 +15,6 @@ public class Mover : MonoBehaviour
 
     public void Move(Vector2 movementVector)
     {
-        print("Move Called");
         float xPos = transform.position.x + movementVector.x * m_moveSpeed * Time.deltaTime;
         float yPos = transform.position.y;
         m_rigidbody.MovePosition(new Vector2(xPos, yPos));

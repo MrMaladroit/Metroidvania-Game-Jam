@@ -7,15 +7,26 @@ public class PlayerInputController : MonoBehaviour
     private Mover mover;
 
     private PlayerInputActions m_playerInputActions;
+    private InputAction m_movement;
 
     private void Awake()
     {
         m_playerInputActions = new PlayerInputActions();
-        m_playerInputActions.Player.Movement.Enable();
+    }
+
+    private void OnEnable()
+    {
+        m_movement = m_playerInputActions.Player.Movement;
+        m_movement.Enable();
+    }
+
+    private void OnDisable()
+    {
+        m_movement.Disable();
     }
     private void FixedUpdate()
     {
-            Vector2 input = m_playerInputActions.Player.Movement.ReadValue<Vector2>();
+            Vector2 input = m_movement.ReadValue<Vector2>();
             mover.Move(input);
     }
 }
