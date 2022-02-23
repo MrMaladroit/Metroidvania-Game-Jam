@@ -8,12 +8,14 @@ public class Jumper : MonoBehaviour
     private float m_jumpVelocity = 500;
 
     private Rigidbody2D rb;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        
     }
-
+    private void FixedUpdate()
+    {
+    }
     public void ShortHop()
     {
         print("Short Hop Called");

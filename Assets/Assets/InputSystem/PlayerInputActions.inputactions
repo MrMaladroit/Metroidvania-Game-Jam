@@ -15,9 +15,9 @@
                 },
                 {
                     "name": "Movement",
-                    "type": "Value",
-                    "id": "944f07ff-fe32-468b-bde1-b6ca523e7efc",
-                    "expectedControlType": "Vector2",
+                    "type": "Button",
+                    "id": "a465b3e1-a7ce-4f95-a7ce-af474d9e11c2",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -35,8 +35,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "2D Vector",
-                    "id": "5273d639-d880-431a-88b9-00935a3137a6",
+                    "name": "Arrow Keys",
+                    "id": "5b8f66fd-924e-4a01-9307-c7f083af47da",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -47,7 +47,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "49994e55-4806-4ffd-8f6a-79f98f86d042",
+                    "id": "43cc41f0-0153-4881-9818-fe362ca2c355",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
@@ -58,7 +58,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "66cf4a74-9260-4c35-925b-aa148aad7d0a",
+                    "id": "d009c327-d3f9-45bf-a676-94f7dd404e80",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
@@ -69,7 +69,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "cf31d684-d97d-4e98-ab36-00199bc800fc",
+                    "id": "9703df78-ab36-4c4b-9f94-fcf7e9a074b4",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
@@ -80,7 +80,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "e7b3774a-67f9-46d7-9aea-43c8ab4b6906",
+                    "id": "8cd37d76-7fff-43eb-a898-3f9ea5a3d67d",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",

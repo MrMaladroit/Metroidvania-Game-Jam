@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+public abstract class Attack : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public abstract void StartAttack(GameObject obj);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract bool IsTargetDamagable(GameObject target);
+
+    public abstract void DoDamageToTarget(int damage);
 }
