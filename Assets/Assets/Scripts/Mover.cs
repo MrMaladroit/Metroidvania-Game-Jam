@@ -16,8 +16,6 @@ public class Mover : MonoBehaviour
 
     public void Move(Vector2 movementVector)
     {
-        //float xPos = transform.position.x + movementVector.x * m_moveSpeed * Time.deltaTime;
-        //float yPos = transform.position.y;
-        //m_rigidbody.MovePosition(m_rigidbody.position + movementVector * Time.fixedDeltaTime);
+        m_rigidbody.velocity = new Vector2(movementVector.x * m_moveSpeed, m_rigidbody.velocity.y);
     }
 }
