@@ -18,16 +18,11 @@ public class Jumper : MonoBehaviour
     }
     public void ShortHop()
     {
-        print("Short Hop Called");
-
-        print("Velocity: " + m_shortHopVelocity);
         rb.AddForce(Vector2.up * m_shortHopVelocity, ForceMode2D.Impulse);
     }
 
     public void Jump()
     {
-        print("Jump Called");
-        print("Velocity: " + m_jumpVelocity);
         rb.AddForce(Vector2.up * m_jumpVelocity, ForceMode2D.Impulse);
     }
 

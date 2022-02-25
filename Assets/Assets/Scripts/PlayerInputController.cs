@@ -16,27 +16,29 @@ public class PlayerInputController : MonoBehaviour
     private void Awake()
     {
         m_playerInputActions = new PlayerInputActions();
+        m_movement = m_playerInputActions.Player.Movement;
     }
 
     private void OnEnable()
     {
-        m_movement = m_playerInputActions.Player.Movement;
         m_movement.Enable();
-        m_playerInputActions.Player.Jump.Enable();
+    }
 
-        m_playerInputActions.Player.Jump.performed +=
-            context =>
+
+    public void Jump_Performed(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Performed)
+        {
+            if(context.interaction is TapInteraction)
             {
-                if (context.interaction is TapInteraction)
-                {
-                    DoShortHop();
-                }
-                else
-                {
-                    DoJump();
-                }
-            };
-
+                DoShortHop();
+            }
+            else if(context.interaction is PressInteraction)
+            {
+                DoJump();
+            }
+        }
+        print(context.phase);
     }
 
     private void DoJump()
