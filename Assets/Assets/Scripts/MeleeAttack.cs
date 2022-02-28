@@ -2,25 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeAttack : Attack
+public class MeleeAttack : MonoBehaviour
 {
     [SerializeField]
     private int m_damage = 1;
-    public override void DoDamageToTarget(int damage)
+
+    private Rigidbody2D m_rb;
+
+    private void Awake()
     {
-        throw new System.NotImplementedException();
+        m_rb = GetComponent<Rigidbody2D>();
     }
 
-    public override bool IsTargetDamagable(GameObject target)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        return target.GetComponent<ITakeDamage>() == null;
-    }
+        var takeDamage = collision.gameObject.GetComponent<ITakeDamage>();
 
-    public override void StartAttack(GameObject obj)
-    {
-        if(IsTargetDamagable(obj))
+        if(collision.gameObject.tag == "Player" && takeDamage != null )
         {
-            DoDamageToTarget(m_damage);
+            takeDamage.TakeDamage(m_damage);
         }
     }
 }

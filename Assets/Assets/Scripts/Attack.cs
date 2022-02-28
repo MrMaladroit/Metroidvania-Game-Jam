@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class Attack : MonoBehaviour
 {
-    public abstract void StartAttack(GameObject obj);
+    public abstract void StartAttack();
 
     public abstract bool IsTargetDamagable(GameObject target);
 
-    public abstract void DoDamageToTarget(int damage);
+    public abstract void DoDamageToTarget(int damage, ITakeDamage target);
 }
