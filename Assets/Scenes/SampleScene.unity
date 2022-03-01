@@ -1113,7 +1113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca68f09e798a4054ba464277b669a0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_throwForce: 10
+  m_throwForce: 5
   m_lobAngle: 1.1
   m_items:
   - {fileID: 2344422102220621371, guid: 5ae2066adeabb5947b7866b0a0f37e40, type: 3}

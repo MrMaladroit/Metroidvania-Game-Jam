@@ -30,7 +30,7 @@ public class ThrowAttack : MonoBehaviour
     {
         GameObject projectile = Instantiate(m_currentItem, gameObject.transform.position, Quaternion.identity);
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-        rb.AddForce(new Vector2(-1 * m_lobAngle, 1 * m_throwForce), ForceMode2D.Impulse);
+        rb.AddForce( new Vector2(m_lobAngle * gameObject.transform.forward.z, m_throwForce) , ForceMode2D.Impulse);
     }
 
     public void LoadNextItem()
