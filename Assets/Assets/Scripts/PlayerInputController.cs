@@ -41,16 +41,25 @@ public class PlayerInputController : MonoBehaviour
 
     public void Jump_Performed(InputAction.CallbackContext context)
     {
+        if(context.phase == InputActionPhase.Started)
+        {
+            DoShortHop();
+        }
+        else if(context.phase == InputActionPhase.Canceled)
+        {
+            m_jumper.isJumping = false;
+        }
+
         if(context.phase == InputActionPhase.Performed)
         {
-            if(context.interaction is TapInteraction)
-            {
-                DoShortHop();
-            }
-            else if(context.interaction is PressInteraction)
-            {
-                DoJump();
-            }
+            //if(context.interaction is TapInteraction)
+            //{
+            //    DoShortHop();
+            //}
+            //else if(context.interaction is PressInteraction)
+            //{
+            //    DoJump();
+            //}
         }
         print(context.phase);
     }
