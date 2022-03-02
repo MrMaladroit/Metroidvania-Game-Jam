@@ -904,6 +904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_moveSpeed: 5
+  m_maxMoveSpeed: 15
 --- !u!50 &1107041909
 Rigidbody2D:
   serializedVersion: 4
@@ -917,7 +918,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.5
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -939,9 +940,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isJumping: 0
   m_shortHopVelocity: 5
-  m_jumpVelocity: 5
+  m_jumpVelocity: 7
   m_fallMultiplier: 2.5
-  m_lowJumpMultiplier: 5
+  m_lowJumpMultiplier: 3
 --- !u!114 &1107041911
 MonoBehaviour:
   m_ObjectHideFlags: 0

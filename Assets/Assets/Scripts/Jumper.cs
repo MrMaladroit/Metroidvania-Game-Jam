@@ -14,7 +14,6 @@ public class Jumper : MonoBehaviour
     private float m_lowJumpMultiplier = 2.0f;
 
     private Rigidbody2D m_rigidbody;
-    private float m_maxMoveSpeed = 15f;
     private float m_maxFallSpeed = -24f;
 
     private void Awake()
@@ -35,9 +34,7 @@ public class Jumper : MonoBehaviour
             m_rigidbody.velocity += Vector2.up * Physics2D.gravity.y * (m_lowJumpMultiplier - 1) * Time.fixedDeltaTime;
         }
 
-        m_rigidbody.velocity = new Vector2(Mathf.Clamp(m_rigidbody.velocity.x, 0, m_maxMoveSpeed), Mathf.Clamp(m_rigidbody.velocity.y, m_maxFallSpeed, m_rigidbody.velocity.y));
-
-
+        m_rigidbody.velocity = new Vector2(m_rigidbody.velocity.x, Mathf.Clamp(m_rigidbody.velocity.y, m_maxFallSpeed, m_rigidbody.velocity.y));
     }
     public void ShortHop()
     {

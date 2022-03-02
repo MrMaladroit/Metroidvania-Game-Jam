@@ -6,6 +6,8 @@ public class Mover : MonoBehaviour
 {
     [SerializeField]
     private float m_moveSpeed;
+    [SerializeField]
+    private float m_maxMoveSpeed = 15f;
 
     private Rigidbody2D m_rigidbody;
     private SpriteRenderer m_spriteRenderer;
@@ -18,6 +20,7 @@ public class Mover : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Mathf.Clamp(m_rigidbody.velocity.x, 0, m_maxMoveSpeed);
         print("Current velocity: " + m_rigidbody.velocity);
     }
 
