@@ -13,35 +13,41 @@ public class Jumper : MonoBehaviour
     [SerializeField]
     private float m_lowJumpMultiplier = 2.0f;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D m_rigidbody;
+    private float m_maxMoveSpeed = 15f;
+    private float m_maxFallSpeed = -24f;
+
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        m_rigidbody = GetComponent<Rigidbody2D>();
         
     }
     private void FixedUpdate()
     {
-        if (rb.velocity.y < 0)
+        if (m_rigidbody.velocity.y < 0)
         {
             isJumping = false;
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (m_fallMultiplier - 1) * Time.fixedDeltaTime;
+            m_rigidbody.velocity += Vector2.up * Physics2D.gravity.y * (m_fallMultiplier - 1) * Time.fixedDeltaTime;
         }
-        else if(rb.velocity.y > 0 && !isJumping)
+        else if(m_rigidbody.velocity.y > 0 && !isJumping)
         {
             print("Short hop");
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (m_lowJumpMultiplier - 1) * Time.fixedDeltaTime;
+            m_rigidbody.velocity += Vector2.up * Physics2D.gravity.y * (m_lowJumpMultiplier - 1) * Time.fixedDeltaTime;
         }
+
+        m_rigidbody.velocity = new Vector2(Mathf.Clamp(m_rigidbody.velocity.x, 0, m_maxMoveSpeed), Mathf.Clamp(m_rigidbody.velocity.y, m_maxFallSpeed, m_rigidbody.velocity.y));
+
 
     }
     public void ShortHop()
     {
         isJumping = true;
-        rb.velocity = Vector2.up * m_jumpVelocity;
+        m_rigidbody.velocity = Vector2.up * m_jumpVelocity;
     }
 
     public void Jump()
     {
-        rb.AddForce(Vector2.up * m_jumpVelocity, ForceMode2D.Impulse);
+        m_rigidbody.AddForce(Vector2.up * m_jumpVelocity, ForceMode2D.Impulse);
     }
 
 }

@@ -16,6 +16,12 @@ public class Mover : MonoBehaviour
         m_spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    private void FixedUpdate()
+    {
+        print("Current velocity: " + m_rigidbody.velocity);
+    }
+
+
     public void Move(Vector2 movementVector)
     {
         if (movementVector.x != 0)

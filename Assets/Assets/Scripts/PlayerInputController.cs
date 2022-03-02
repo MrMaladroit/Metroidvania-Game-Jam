@@ -50,17 +50,17 @@ public class PlayerInputController : MonoBehaviour
             m_jumper.isJumping = false;
         }
 
-        if(context.phase == InputActionPhase.Performed)
-        {
-            //if(context.interaction is TapInteraction)
-            //{
-            //    DoShortHop();
-            //}
-            //else if(context.interaction is PressInteraction)
-            //{
-            //    DoJump();
-            //}
-        }
+        //if (context.phase == InputActionPhase.Performed)
+        //{
+        //    if (context.interaction is TapInteraction)
+        //    {
+        //        DoShortHop();
+        //    }
+        //    else if (context.interaction is PressInteraction)
+        //    {
+        //        DoJump();
+        //    }
+        //}
         print(context.phase);
     }
 
