@@ -20,7 +20,8 @@ public class Mover : MonoBehaviour
     {
         if (movementVector.x != 0)
         {
-            m_spriteRenderer.flipX = movementVector.x > 0;
+            var facing = movementVector.x < 0 ? 180 : 0;
+            transform.rotation = new Quaternion(0, facing, 0, 0);
         }
         m_rigidbody.velocity = new Vector2(movementVector.x * m_moveSpeed, m_rigidbody.velocity.y);
     }
