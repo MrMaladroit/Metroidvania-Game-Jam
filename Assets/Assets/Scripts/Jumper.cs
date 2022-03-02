@@ -35,7 +35,7 @@ public class Jumper : MonoBehaviour
             m_rigidbody.velocity += Vector2.up * Physics2D.gravity.y * (m_lowJumpMultiplier - 1) * Time.fixedDeltaTime;
         }
 
-        m_rigidbody.velocity = new Vector2(Mathf.Clamp(m_rigidbody.velocity.x, 0, m_maxMoveSpeed), Mathf.Clamp(m_rigidbody.velocity.y, m_maxFallSpeed, m_rigidbody.velocity.y));
+        m_rigidbody.velocity = new Vector2(m_rigidbody.velocity.x, Mathf.Clamp(m_rigidbody.velocity.y, m_maxFallSpeed, m_rigidbody.velocity.y)) ;
 
 
     }
