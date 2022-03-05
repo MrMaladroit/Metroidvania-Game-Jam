@@ -25,7 +25,6 @@ public class ThrowAttack : MonoBehaviour
 
     public void Throw()
     {
-        print("Throw Called");
         GameObject projectile  = Instantiate(m_currentItem, gameObject.transform.position, Quaternion.identity);
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.AddForce(new Vector2 (gameObject.transform.forward.z * m_throwForce, m_throwAngle), ForceMode2D.Impulse);
@@ -33,7 +32,6 @@ public class ThrowAttack : MonoBehaviour
 
     public void Lob()
     {
-        print("Lob Called");
         GameObject projectile = Instantiate(m_currentItem, gameObject.transform.position, Quaternion.identity);
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.AddForce( new Vector2(m_lobAngle * gameObject.transform.forward.z, m_throwForce) , ForceMode2D.Impulse);

@@ -57,7 +57,6 @@ public class Mover : MonoBehaviour
         }
         xVelocity = Mathf.Clamp(xVelocity, -m_maxSpeed, m_maxSpeed);
         m_rigidbody.velocity = new Vector2(xVelocity, m_rigidbody.velocity.y);
-
     }
 
 }
