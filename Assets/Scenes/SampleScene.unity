@@ -1529,7 +1529,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isJumping: 0
-  m_shortHopVelocity: 5
   m_jumpVelocity: 5
   m_fallMultiplier: 2.5
   m_lowJumpMultiplier: 5
@@ -1597,7 +1596,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1107041911}
         m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
-        m_MethodName: Attack_Performed
+        m_MethodName: Throw_Attack_Performed
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1609,6 +1608,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d97019ac-d873-434f-a5a3-5725dd91e680
     m_ActionName: Player/Attack[/Keyboard/z]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1107041911}
+        m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+        m_MethodName: Lob_Attack_Performed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2be8d91c-8aa8-4faa-889f-dae3d5534413
+    m_ActionName: Player/Lob Attack[/Keyboard/x]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1708,7 +1723,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_throwForce: 5
-  m_lobAngle: 1.1
+  m_throwAngle: 3
+  m_lobForce: 5
+  m_lobAngle: 1.5
   m_items:
   - {fileID: 2344422102220621371, guid: 5ae2066adeabb5947b7866b0a0f37e40, type: 3}
 --- !u!95 &1107041917

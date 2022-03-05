@@ -35,9 +35,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Attack"",
+                    ""name"": ""Throw Attack"",
                     ""type"": ""Button"",
                     ""id"": ""d97019ac-d873-434f-a5a3-5725dd91e680"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Lob Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""2be8d91c-8aa8-4faa-889f-dae3d5534413"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -117,7 +125,18 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Attack"",
+                    ""action"": ""Throw Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""78bab958-45ec-4a03-8440-3d061cfcb263"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Lob Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -130,7 +149,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
-        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_ThrowAttack = m_Player.FindAction("Throw Attack", throwIfNotFound: true);
+        m_Player_LobAttack = m_Player.FindAction("Lob Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -182,14 +202,16 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Movement;
-    private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_ThrowAttack;
+    private readonly InputAction m_Player_LobAttack;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
-        public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @ThrowAttack => m_Wrapper.m_Player_ThrowAttack;
+        public InputAction @LobAttack => m_Wrapper.m_Player_LobAttack;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -205,9 +227,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
-                @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                @ThrowAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrowAttack;
+                @ThrowAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrowAttack;
+                @ThrowAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrowAttack;
+                @LobAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLobAttack;
+                @LobAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLobAttack;
+                @LobAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLobAttack;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -218,9 +243,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
-                @Attack.started += instance.OnAttack;
-                @Attack.performed += instance.OnAttack;
-                @Attack.canceled += instance.OnAttack;
+                @ThrowAttack.started += instance.OnThrowAttack;
+                @ThrowAttack.performed += instance.OnThrowAttack;
+                @ThrowAttack.canceled += instance.OnThrowAttack;
+                @LobAttack.started += instance.OnLobAttack;
+                @LobAttack.performed += instance.OnLobAttack;
+                @LobAttack.canceled += instance.OnLobAttack;
             }
         }
     }
@@ -229,6 +257,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     {
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
-        void OnAttack(InputAction.CallbackContext context);
+        void OnThrowAttack(InputAction.CallbackContext context);
+        void OnLobAttack(InputAction.CallbackContext context);
     }
 }

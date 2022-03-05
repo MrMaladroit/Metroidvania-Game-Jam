@@ -22,9 +22,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Attack",
+                    "name": "Throw Attack",
                     "type": "Button",
                     "id": "d97019ac-d873-434f-a5a3-5725dd91e680",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Lob Attack",
+                    "type": "Button",
+                    "id": "2be8d91c-8aa8-4faa-889f-dae3d5534413",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -104,7 +112,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
+                    "action": "Throw Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "78bab958-45ec-4a03-8440-3d061cfcb263",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Lob Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
