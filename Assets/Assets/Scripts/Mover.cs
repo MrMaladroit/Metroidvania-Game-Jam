@@ -18,7 +18,7 @@ public class Mover : MonoBehaviour
     private void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
-        m_animator = GetComponent<Animator>();
+        m_animator = GetComponentInChildren<Animator>();
     }
 
     public void Move(Vector2 movementVector)

@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, ITakeDamage
 {
-    //public int Health { get; }
+
+    public static Action OnHealthReachedZero;
+    public int Health { get; }
     [SerializeField]
     private int m_health = 3;
     [SerializeField]
@@ -15,7 +17,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     private void Awake()
     {
-        m_animator = GetComponent<Animator>();
+        m_animator = GetComponentInChildren<Animator>();
     }
 
     public void TakeDamage(int Damage)
@@ -30,14 +32,14 @@ public class Enemy : MonoBehaviour, ITakeDamage
     }
 
     private void HealthReachedZero()
-    { 
+    {
+        OnHealthReachedZero();
         PlayDeathAnimation();
         Destroy(this.gameObject, m_destroyDelayInSeconds);
     }
 
     private void PlayDeathAnimation()
     {
-        print("Death Called");
-        m_animator.SetTrigger("Death");
+        m_animator.SetBool("Dead", true);
     }
 }
