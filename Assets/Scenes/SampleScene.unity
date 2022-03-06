@@ -793,7 +793,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -7.83, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1139,9 +1139,10 @@ GameObject:
   - component: {fileID: 802635252}
   - component: {fileID: 802635251}
   - component: {fileID: 802635250}
-  - component: {fileID: 802635256}
   - component: {fileID: 802635255}
   - component: {fileID: 802635254}
+  - component: {fileID: 802635257}
+  - component: {fileID: 802635256}
   m_Layer: 0
   m_Name: flyFly1
   m_TagString: Untagged
@@ -1236,7 +1237,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5e1df60bd9134ab49aa6b5a3f765e070, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.72, y: 0.36}
@@ -1293,7 +1294,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!114 &802635256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1309,6 +1310,20 @@ MonoBehaviour:
   deceleration: 15
   m_maxSpeed: 5
   acceleration: 10
+--- !u!114 &802635257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802635249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf03892aa44d80d42b72df0b8b1f6a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_health: 1
+  m_destroyDelayInSeconds: 2
 --- !u!1 &873175621
 GameObject:
   m_ObjectHideFlags: 0

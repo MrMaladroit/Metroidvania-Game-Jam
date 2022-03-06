@@ -31,7 +31,6 @@ public class Mover : MonoBehaviour
 
         m_animator.SetFloat("Speed", Mathf.Clamp(Mathf.Abs(movementVector.x), 0, 1));
 
-
         if(xVelocity > -m_maxSpeed && movementVector.x > 0)
         {
             xVelocity += acceleration * Time.fixedDeltaTime; 
